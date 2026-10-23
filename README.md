@@ -12,6 +12,12 @@ GitHub 上也**不存在任何第三方汉化项目**（repo 搜索结果为 0�
 本补丁的做法：注入一个独立 JS，监听 DOM，把界面文本/占位符/提示替换为中文；
 React 重渲染后自动重贴，因此不用重新编译前端，也不会在升级时引入冲突。
 
+## 效果截图
+
+| 扩散模型侧栏 | 设置 · 模型 | 首页 |
+|---|---|---|
+| ![diffusion](screenshots/diffusion-panel.png) | ![settings](screenshots/settings-model.png) | ![main](screenshots/main.png) |
+
 ## 安装
 ```bash
 # 用装了 iopaint 的那个 Python 执行
