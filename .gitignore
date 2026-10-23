@@ -1,0 +1,5 @@
+# 临时文件
+.m[0-9]
+*.tmp
+.DS_Store
+__pycache__/
