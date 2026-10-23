@@ -22,6 +22,45 @@ React 重渲染后自动重贴，因此不用重新编译前端，也不会在�
 
 ![plugin-menu](screenshots/plugin-menu.png)
 
+## 两种安装方式
+
+### 方式一：直接用整合包（不想折腾环境就选这个）
+
+解压即用，与 Python 环境完全隔离，**已内置中文界面和全部模型，断网可用**。
+
+| 版本 | 压缩包 | 解压后 | 内置内容 | 下载 |
+|---|---|---|---|---|
+| **精简版 B** | 3.86 GB | 4.00 GB | IOPaint 1.6.0（汉化）+ LaMa 擦除 + RealESRGAN 超分 + GFPGAN / RestoreFormer 人脸修复 + AnimeSeg 动漫分割 + SAM2.1 点选分割 | 【网盘链接-待填】提取码【待填】 |
+| **完整版 C** | 6.22 GB | 6.55 GB | 精简版全部 + **Stable Diffusion 1.5 inpainting**（换物体 / 扩图） | 【网盘链接-待填】提取码【待填】 |
+
+文件名与校验值（下载后请核对，防止网盘传输损坏）：
+
+| 文件 | SHA-256 |
+|---|---|
+| `IOPaint-zh-portable-B-v1.0.zip` | `8a743e2469463f82a7baa9f910e7442d93641302d9c818c713faac8797452e0c` |
+| `IOPaint-zh-portable-C-v1.0.zip` | `3531bb992091433414f577d765bfaa1a3301398dea19b3e684cb0ec5eb714bbd` |
+
+校验方法（Windows 自带 certutil，把文件名换成你的）：
+
+```cmd
+certutil -hashfile IOPaint-zh-portable-B-v1.0.zip SHA256
+```
+
+使用步骤：
+
+1. 下载后解压到**纯英文、无空格**的路径（例如 `D:\IOPaint-zh`）——中文路径会导致模型加载失败
+2. 双击 `启动 IOPaint（擦除增强）.bat`（换物体/扩图请用 `启动 IOPaint（SD 换物·扩图）.bat`）
+3. 浏览器自动打开 http://127.0.0.1:8080
+4. 显卡需 NVIDIA（已测 RTX 4060 Laptop 8GB）；无显卡可把脚本里 `--device cuda` 改成 `--device cpu`
+
+整合包内附 `SHA256SUMS.txt` 与 `VERSION.txt`，下载后可校验完整性。遇到闪退多为缺 VC 运行库：
+<https://aka.ms/vs/17/release/vc_redist.x64.exe>
+
+> 整合包只是把官方 PyPI 包、公开模型权重和本汉化补丁打包在一起，未修改模型权重；
+> 各模型权重遵循其原始许可（LaMa / GFPGAN / RealESRGAN / SAM2 / SD1.5）。
+
+### 方式二：只打汉化补丁（已有 IOPaint 环境）
+
 ## 安装
 ```bash
 # 用装了 iopaint 的那个 Python 执行
