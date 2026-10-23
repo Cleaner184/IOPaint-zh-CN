@@ -18,6 +18,10 @@ React 重渲染后自动重贴，因此不用重新编译前端，也不会在�
 |---|---|---|
 | ![diffusion](screenshots/diffusion-panel.png) | ![settings](screenshots/settings-model.png) | ![main](screenshots/main.png) |
 
+插件菜单（已汉化）：
+
+![plugin-menu](screenshots/plugin-menu.png)
+
 ## 安装
 ```bash
 # 用装了 iopaint 的那个 Python 执行
@@ -55,9 +59,13 @@ python apply.py --uninstall  # 还原英文原版
 | 扩散模型侧栏（裁剪重绘、扩图、遮罩羽化、遮罩操作膨胀/收缩/反选/清空、直方图匹配、步数、引导、强度、采样器、种子、反向提示词、BrushNet、PowerPaint 任务、ControlNet、LCM） | ✅ |
 | OpenCV(cv2) 侧栏 / LDM 侧栏 | ✅ |
 | 文件管理器（目录切换、排序、布局、搜索） | ✅ |
-| 交互式分割确认框、toast 提示 | ✅ |
+| 交互式分割确认框（取消 / 确认）、toast 提示 | ✅ |
+| **插件下拉菜单**（交互式分割 / 动漫人物分割 / RealESRGAN / GFPGAN，子菜单：放大 2 倍 / 放大 4 倍 / 抠图 / 去背景 / 生成遮罩） | ✅ |
+| **真实扩散模型面板**（SD1.5 实机渲染，含 ControlNet 选区） | ✅ |
 
 **159 条词条已用「逐条注入 DOM 比对」方式全量回归：159/159 生效，0 条失效。**
+**9 条动态消息正则（插件运行完成、模型切换、遮罩尺寸不符、图片数量等）逐条验证通过。**
+复核环境：Windows 11 + RTX 4060 Laptop + IOPaint 1.6.0，分别在「擦除模型」「SD1.5 真实推理」「5 个插件全开」「目录模式」四种实机上逐屏抓取渲染文本，**残留英文 0 条**（模型 ID / 采样器名 / 品牌名除外）。
 （注意：BrushNet/ControlNet 的子选项面板需后端开启对应能力才会出现，其文案已预先录入并在引擎层验证通过。）
 
 ## 当前覆盖
