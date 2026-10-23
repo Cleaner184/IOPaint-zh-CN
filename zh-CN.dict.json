@@ -148,5 +148,14 @@
   "Perform outpainting on images to expand it": "对图片进行扩图，向外扩展画面",
   "How much to blur the mask before processing, in pixels. Make the generated inpainting boundaries appear more natural.": "修复前对遮罩做高斯模糊的像素半径，越大边缘越自然。",
   "Expand or shrink mask. Using the slider to adjust the kernel size for dilation or erosion.": "膨胀或收缩遮罩，用滑块调整核大小。",
-  "Notifications (F8)": "通知 (F8)"
+  "Notifications (F8)": "通知 (F8)",
+  "Expand": "膨胀",
+  "Shrink": "收缩",
+  "text-guided": "文本引导",
+  "context-aware": "上下文感知",
+  "shape-guided": "形状引导",
+  "object-remove": "对象移除",
+  "outpainting": "扩图",
+  "Clean": "清洁",
+  "Hotkey": "快捷键"
 }
