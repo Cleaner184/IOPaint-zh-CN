@@ -53,7 +53,7 @@ certutil -hashfile IOPaint-zh-portable-B-v1.0.zip SHA256
 3. 浏览器自动打开 http://127.0.0.1:8080
 4. 显卡需 NVIDIA（已测 RTX 4060 Laptop 8GB）；无显卡可把脚本里 `--device cuda` 改成 `--device cpu`
 
-整合包内附 `SHA256SUMS.txt` 与 `VERSION.txt`，下载后可校验完整性。遇到闪退多为缺 VC 运行库：
+整合包内附 `VERSION.txt`（记录版本构成）；SHA-256 见上表。遇到闪退多为缺 VC 运行库：
 <https://aka.ms/vs/17/release/vc_redist.x64.exe>
 
 > 整合包只是把官方 PyPI 包、公开模型权重和本汉化补丁打包在一起，未修改模型权重；
