@@ -51,7 +51,7 @@ certutil -hashfile IOPaint-zh-portable-B-v1.0.zip SHA256
 1. 下载后解压到**纯英文、无空格**的路径（例如 `D:\IOPaint-zh`）——中文路径会导致模型加载失败
 2. 双击 `启动 IOPaint（擦除增强）.bat`（换物体/扩图请用 `启动 IOPaint（SD 换物·扩图）.bat`）
 3. 浏览器自动打开 http://127.0.0.1:8080
-4. 显卡需 NVIDIA（已测 RTX 4060 Laptop 8GB）；无显卡可把脚本里 `--device cuda` 改成 `--device cpu`
+4. 显卡需 NVIDIA（8GB 显存即可流畅；6GB 建议只用擦除模式）；无独显可把脚本里 `--device cuda` 改成 `--device cpu`
 
 整合包内附 `VERSION.txt`（记录版本构成）；SHA-256 见上表。遇到闪退多为缺 VC 运行库：
 <https://aka.ms/vs/17/release/vc_redist.x64.exe>
@@ -63,8 +63,8 @@ certutil -hashfile IOPaint-zh-portable-B-v1.0.zip SHA256
 
 ## 安装
 ```bash
-# 用装了 iopaint 的那个 Python 执行
-D:\ai-models\venv-iopaint\Scripts\python.exe apply.py
+# 用「装了 iopaint 的那个 Python」执行（venv 里的 python.exe 或系统 python）
+python apply.py
 # 然后刷新浏览器（Ctrl+F5）即可
 ```
 
@@ -104,19 +104,8 @@ python apply.py --uninstall  # 还原英文原版
 
 **159 条词条已用「逐条注入 DOM 比对」方式全量回归：159/159 生效，0 条失效。**
 **9 条动态消息正则（插件运行完成、模型切换、遮罩尺寸不符、图片数量等）逐条验证通过。**
-复核环境：Windows 11 + RTX 4060 Laptop + IOPaint 1.6.0，分别在「擦除模型」「SD1.5 真实推理」「5 个插件全开」「目录模式」四种实机上逐屏抓取渲染文本，**残留英文 0 条**（模型 ID / 采样器名 / 品牌名除外）。
+复核环境：Windows 11 + NVIDIA 8GB 显存显卡 + IOPaint 1.6.0，分别在「擦除模型」「SD1.5 真实推理」「5 个插件全开」「目录模式」四种实机上逐屏抓取渲染文本，**残留英文 0 条**（模型 ID / 采样器名 / 品牌名除外）。
 （注意：BrushNet/ControlNet 的子选项面板需后端开启对应能力才会出现，其文案已预先录入并在引擎层验证通过。）
-
-## 当前覆盖
-- 首页、拖拽上传、工具栏全部 tooltip
-- 设置对话框三个页签（模型 / 通用 / 插件）含全部说明文字
-- 快捷键说明对话框
-- 侧栏参数（画笔/反选/清空、裁剪重绘、BrushNet、ControlNet、LCM、扩图、
-  PowerPaint 任务、步数/引导/采样器/种子/遮罩羽化/直方图匹配、遮罩操作）
-- 文件管理器、交互式分割确认框、提示词输入、toast 提示
-
-**有意保留英文**：模型 ID（`lama`、`briaai/RMBG-1.4`）、采样器名（`DPM++ 2M`）、
-品牌名（RealESRGAN / BrushNet / PowerPaint / ControlNet / Stable Diffusion）。
 
 ## 技术要点
 - 精确匹配词表 + 正则规则（处理含变量的句子，如 `Run xxx successfully in 1.4s`）
